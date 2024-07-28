@@ -1,0 +1,11 @@
+## Create a Repository of projects
+
+API Gateway combined with Lambda seems like a good start
+
+Using Lambda with event bridge
+
+Event bridge will be a part of the mapping template or trigger?? i dont know
+
+Provide security for the lambda funtion with the api gateway
+api gateway will distribute an api key, which will confirm
+a valid api call and deny invalid call
