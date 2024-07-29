@@ -1,0 +1,31 @@
+nano lamp.yml
+
+
+---
+- hosts: localhost
+  gather_facts: false
+  connection: local
+  become: yes
+
+  tasks:
+    - name: Install our packages
+      apt:
+        name: ['apache2', 'mysql-server', 'mysql-common', 'mysql-client']
+        state: present                
+        update_cache: true
+    - name: Confirm services are running
+      service:
+        name: "{{ item }}"
+        state: started
+      with_items:
+        - apache2
+        - mysql
+
+
+
+verify that the required packages are not currently installed by issuing the following command
+dpkg -l apache2 mysql-server
+
+
+To run your Ansible playbook, enter the following command:
+ansible-playbook lamp.yml
